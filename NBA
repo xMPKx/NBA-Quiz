@@ -1,0 +1,26 @@
+import random
+
+nba_teams = {
+    "Lakers": ["LeBron James", "Anthony Davis", "D'Angelo Russell"],
+    "Warriors": ["Stephen Curry", "Klay Thompson", "Draymond Green"],
+    "Bucks": ["Giannis Antetokounmpo", "Khris Middleton", "Brook Lopez"],
+    "Celtics": ["Jayson Tatum", "Jaylen Brown", "Al Horford"]
+}
+
+# Alle Spieler sammeln
+alle_spieler = []
+for team, spieler_liste in nba_teams.items():
+    for spieler in spieler_liste:
+        alle_spieler.append((spieler, team))
+
+# Zufälligen Spieler auswählen
+zufalls_spieler, richtiges_team = random.choice(alle_spieler)
+
+# Benutzer rät das Team
+antwort = input(f"Zu welchem Team gehört {zufalls_spieler}? ").strip()
+
+# Ergebnis
+if antwort.lower() == richtiges_team.lower():
+    print("✅ Richtig! Nice Job!")
+else:
+    print(f"❌ Nope. {zufalls_spieler} spielt bei den {richtiges_team}.")
